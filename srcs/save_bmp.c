@@ -42,7 +42,7 @@ int		save_bmp(t_cub *cub, int *buff)
 	int l;
 	int m;
 
-	if ((fd = open("./first_frame.bmp", O_RDWR | O_CREAT)) == -1 ||
+	if ((fd = open("./first_frame.bmp", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR)) == -1 ||
 			!(buff = (int *)malloc(cub->rsl.x * cub->rsl.y * sizeof(int))))
 		free_cub_exit(cub, SAVING_BMP_ERROR);
 	init_saving(&cub->bmp, cub);
